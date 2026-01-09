@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洗衣機模糊控制器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>洗衣機模糊控制器</h1>
+            <p>根據輸入的「污泥」和「油污」程度，動態計算最佳清洗時間。</p>
+        </header>
+
+        <main class="main-content">
+            <div class="controls-container">
+                <h2>輸入參數</h2>
+                <div class="control">
+                    <label for="dirt-slider">污泥程度 (Dirt): <span id="dirt-value">100</span></label>
+                    <input type="range" id="dirt-slider" min="0" max="200" value="100">
+                </div>
+                <div class="control">
+                    <label for="grease-slider">油污程度 (Grease): <span id="grease-value">100</span></label>
+                    <input type="range" id="grease-slider" min="0" max="200" value="100">
+                </div>
+                <div class="output">
+                    <h2>計算結果</h2>
+                    <p>建議清洗時間: <strong id="output-time"></strong> 分鐘</p>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-group">
+                    <div class="chart-wrapper">
+                        <h3>污泥隸屬函數</h3>
+                        <canvas id="dirt-chart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h3>油污隸屬函數</h3>
+                        <canvas id="grease-chart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-group">
+                     <div class="chart-wrapper">
+                        <h3>清洗時間隸屬函數</h3>
+                        <canvas id="time-chart"></canvas>
+                    </div>
+                    <div class="chart-wrapper">
+                        <h3>輸出結果 (聚合 & 解模糊化)</h3>
+                        <canvas id="result-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
